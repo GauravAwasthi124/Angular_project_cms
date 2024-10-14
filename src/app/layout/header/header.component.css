@@ -1,0 +1,60 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+/* Toolbar styles */
+.custom-toolbar {
+    background-color: #322653;
+}
+
+.mat-toolbar {
+    color: #f0f0f0 !important;
+}
+
+.mat-icon-button {
+    color: #f0f0f0 !important;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Neumorphic button styling */
+.neumorphic-button {
+    color: white;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.neumorphic-button:hover {
+    transform: scale(1.05);
+}
+
+.neumorphic-button {
+    color: white !important;
+}
+
+/* Adjust spacing between toolbar buttons */
+.custom-toolbar button:not(:last-child) {
+    margin-right: 10px;
+}
+
+/* Notification icon styles */
+.notification-icon {
+    color: #f0f0f0 !important;
+    transition: transform 0.2s ease;
+}
+
+.notification-icon:hover {
+    transform: scale(1.2);
+}
+
+body {
+    color: white !important;
+}
+
+/* Mat MDC icon button styling */
+.mat-mdc-icon-button {
+    color: white !important;
+}

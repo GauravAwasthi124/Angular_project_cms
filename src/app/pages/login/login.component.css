@@ -1,0 +1,112 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d0e8f2;
+    height: 100vh;
+    width: 100vw;
+}
+
+.one {
+    height: 500px;
+    width: 800px;
+    background-color: #ffffff;
+    border: 5px solid #d0e8f2;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.two {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    color: red;
+    margin-top: 20px;
+}
+
+.three {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.four{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        margin-top: 15px;
+}
+.five{
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        margin-top: 15px;
+        
+}
+mat-form-field {
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+
+
+input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.example-right-align {
+    text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+}
+
+input.example-right-align {
+    -moz-appearance: textfield;
+}
+
+
+section {
+    display: table;
+}
+
+.example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+}
+
+.example-button-row {
+    display: table-cell;
+    max-width: 600px;
+}
+
+.example-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+}

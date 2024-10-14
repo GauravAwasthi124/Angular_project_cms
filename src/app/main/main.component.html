@@ -1,0 +1,17 @@
+<div *ngIf="!isLoginPage">
+
+    <div class="app-header">
+        <app-header></app-header>
+</div>
+<div class="container">
+    <app-sidebar></app-sidebar>
+</div>
+
+<div class="content" [ngClass]="isSidebarVisible ? 'with-sidebar' : 'without-sidebar'">
+    <router-outlet></router-outlet>
+</div>
+</div>
+
+<div class="con" *ngIf="isLoginPage">
+    <router-outlet></router-outlet>
+</div>

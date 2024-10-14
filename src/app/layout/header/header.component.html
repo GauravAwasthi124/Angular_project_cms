@@ -1,0 +1,16 @@
+<!-- toolbar.component.html -->
+<mat-toolbar class="custom-toolbar">
+    <button mat-icon-button class="neumorphic-button" class="example-icon" aria-label="Toggle Sidebar"
+        (click)="toggleSidebar()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    &nbsp;
+    <span>LMS</span>
+    <span class="example-spacer"></span>
+    <button mat-button class="neumorphic-button">
+        <mat-icon>account_circle</mat-icon>
+        {{userData?.authData?.users?.name | uppercase}}
+    </button>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button mat-button class="neumorphic-button" (click)="logout()">LOGOUT</button>
+</mat-toolbar>

@@ -1,0 +1,12 @@
+<p>users works!</p>
+<h2>All Users</h2>
+<ul>
+    <li *ngFor="let user of userData">
+        <p><strong>Name:</strong> {{ user.name }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+    </li>
+</ul>
+
+<button (click)="logout()">Logout</button>
+
+<input type="text" value="{{ profileData?.authData?.users?.name }} " />
