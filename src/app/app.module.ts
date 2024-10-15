@@ -17,9 +17,10 @@ import { HeaderComponent } from './layout/header/header.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MainComponent } from './main/main.component';
-import { AddusersComponent } from './users/addusers/addusers.component';
 import { UserlistComponent } from './users/userlist/userlist.component';
-import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,6 @@ import { MatOptionModule } from '@angular/material/core';
     HeaderComponent,
     SidebarComponent,
     MainComponent,
-    AddusersComponent,
     UserlistComponent
   ],
   imports: [
@@ -44,7 +44,8 @@ import { MatOptionModule } from '@angular/material/core';
     MatDividerModule,
     HttpClientModule,
     MatToolbarModule,
-    MatOptionModule
+    MatSelectModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

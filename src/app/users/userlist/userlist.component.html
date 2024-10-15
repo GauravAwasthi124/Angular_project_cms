@@ -1,1 +1,124 @@
-<p>userlist works!</p>
+<div class="first" >
+    <div class="example-button-row">
+        <div class="example-flex-container">
+            <div class="example-button-container">
+                <button mat-fab extended (click)="toggleuserform()">
+                    <mat-icon>add</mat-icon>
+                    Add Users
+                </button>
+            </div>
+        </div>
+    </div>
+</div>  
+
+<div class="form-container" *ngIf="toggleform">
+    <h2 class="form-title">Add New Users</h2>
+    <form [formGroup]="userform" (ngSubmit)="submit($event)">
+        <div class="form-row">
+            <mat-form-field class="form-field">
+                <mat-label>Enter your name</mat-label>
+                <input matInput formControlName="name" placeholder="Ex. Nougat" />
+            </mat-form-field>
+
+            <mat-form-field class="form-field">
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="pat@example.com" formControlName="email" (blur)="updateErrorMessage()" />
+                <mat-error *ngIf="email.invalid">{{errorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            <mat-form-field class="form-field">
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide() ? 'password' : 'text'" formControlName="password" />
+                <button mat-icon-button matSuffix type="button" (click)="clickEvent($event)"
+                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide()">
+                    <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <mat-form-field class="form-field">
+                <mat-label>Select UserRole</mat-label>
+                <mat-select formControlName="userrole">
+                    <mat-option value="admin">Admin</mat-option>
+                    <mat-option value="user">User</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            <mat-form-field class="form-field">
+                <mat-label>Status of User</mat-label>
+                <mat-select formControlName="status">
+                    <mat-option value="1">Active</mat-option>
+                    <mat-option value="0">Not Active</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="button-container">
+            <button mat-fab color="accent" extended type="submit">
+                <mat-icon>cloud</mat-icon> Save
+            </button>
+        </div>
+    </form>
+</div>
+
+
+
+
+<div class="container">
+    <table mat-table [dataSource]="userData" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> Sr.No </th>
+            <td mat-cell *matCellDef="let element,let i =index"> {{i+1}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name | uppercase}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="userrole">
+            <th mat-header-cell *matHeaderCellDef> User Role </th>
+            <td mat-cell *matCellDef="let element"> {{element.userrole | uppercase}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element.status === 1">Active</ng-container>
+                <ng-container *ngIf="element.status === 0">Not Active</ng-container>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef> Edit</th>
+            <td mat-cell *matCellDef="let element">
+                <button>
+                    <mat-icon style="color: blue;">edit</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> Delete</th>
+            <td mat-cell *matCellDef="let element" >
+                <button>
+                    <mat-icon style="color: red;">delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

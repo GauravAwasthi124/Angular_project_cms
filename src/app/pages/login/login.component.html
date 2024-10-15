@@ -5,7 +5,7 @@
         </div>
         <form [formGroup]="form" (submit)="submit($event)"> <!-- Pass the event -->
             <div class="three">
-                <mat-error *ngIf="errormessage" style="color: red;">{{errormessage}}</mat-error>
+                <mat-error style="color: red;">{{errormessage}}</mat-error>
                 <mat-form-field>
                     <mat-label>Enter your email</mat-label>
                     <input matInput placeholder="pat@example.com" formControlName="email"
@@ -29,7 +29,7 @@
                 <div class="example-button-row">
                     <div class="example-flex-container">
                         <div class="example-button-container">
-                            <button mat-fab extended type="submit"> <!-- Change to type="submit" -->
+                            <button mat-fab extended type="submit">
                                 <mat-icon>save</mat-icon>
                                 Submit
                             </button>
