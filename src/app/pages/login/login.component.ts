@@ -1,8 +1,8 @@
-import {ChangeDetectionStrategy, Component, signal, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal, OnInit, ChangeDetectorRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import {merge} from 'rxjs';
+import { merge } from 'rxjs';
 import { LoginService } from 'src/app/service/login/login.service';
 
 
@@ -13,30 +13,35 @@ import { LoginService } from 'src/app/service/login/login.service';
   styleUrls: ['./login.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-  
-  
 
-export class LoginComponent implements OnInit{
+
+
+export class LoginComponent implements OnInit {
 
   form!: FormGroup;
   readonly email = new FormControl('', [Validators.required, Validators.email]);
   errormessage!: string;
-  constructor(private fb: FormBuilder, private http: LoginService, private router: Router) {
+  toastr: any;
+  constructor(
+    private fb: FormBuilder,
+    private cdr: ChangeDetectorRef,
+    private http: LoginService,
+    private router: Router) {
     this.form = this.fb.group({
       email: this.email,
-      password:['',[Validators.required]]
+      password: ['', [Validators.required]]
     })
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateErrorMessage());
   }
   ngOnInit(): void {
-    this.errorMessage;
+    // this.errorMessage;
   }
-  
+
 
   errorMessage = signal('');
-   updateErrorMessage() {
+  updateErrorMessage() {
     if (this.email.hasError('required')) {
       this.errorMessage.set('You must enter a value');
     } else if (this.email.hasError('email')) {
@@ -53,24 +58,25 @@ export class LoginComponent implements OnInit{
     event.stopPropagation();
   }
 
-  submit(event:Event) {
-    event.preventDefault();
+  submit(event: Event) {
     if (this.form.valid) {
       const { email, password } = this.form.value;
-      this.http.loginUser(email, password).subscribe(
-        response => {
-          const token = response.token;
+      this.http.loginUser(email, password).subscribe({
+        next: (res: any) => {
+          const token = res.token;
+          this.cdr.detectChanges();
           localStorage.setItem('token', token);
-          this.router.navigateByUrl('users');
+          this.router.navigateByUrl('userlist');
         },
-        error => {
-          this.errormessage="Invalid username or password"
-          console.error('Login failed', error);
+        error: (err: any) => {
+          this.errormessage = "Invalid email or password";
+          this.cdr.detectChanges();
         }
-      );
+      });
     }
   }
 
 
-  
+
+
 }

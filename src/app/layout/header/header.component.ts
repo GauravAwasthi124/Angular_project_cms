@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit{
       this.userData = '';
       this.router.navigateByUrl('login');
     } else {
-      this.tokenVerification();
+      this.tokenVerification()
     }
   }
 
@@ -37,7 +37,6 @@ export class HeaderComponent implements OnInit{
   tokenVerification() {
     this.tokenhttp.profileUser(this.token).subscribe(data => {
       this.userData = data;
-      console.log(this.userData);
     })
   }
 }

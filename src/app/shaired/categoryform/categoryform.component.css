@@ -1,0 +1,56 @@
+.mat-dialog-container {
+    border-radius: 10px;
+    /* Adds a slight roundness to the modal */
+    padding: 20px;
+}
+
+mat-form-field {
+    width: 100%;
+    /* Ensures that input fields take full width */
+}
+
+.mat-dialog-title {
+    font-size: 24px;
+    /* Makes the title stand out */
+    font-weight: bold;
+    text-align: center;
+    /* Centers the title */
+    margin-bottom: 15px;
+}
+
+button[mat-button] {
+    margin-left: 10px;
+    background-color: #3f51b5;
+    /* Use Material Design color */
+    color: white;
+    border-radius: 5px;
+    padding: 8px 16px;
+}
+
+button[mat-button]:hover {
+    background-color: #303f9f;
+    /* Darker shade on hover */
+}
+
+mat-icon {
+    margin-right: 5px;
+}
+
+/* Adjustments for the form */
+.mat-dialog-actions {
+    margin-top: 10px;
+    justify-content: flex-end;
+}
+
+.form-field {
+    margin-top: 15px;
+}
+
+button[mat-button].cancel-button {
+    background-color: #f44336;
+    /* Red color for Cancel button */
+}
+
+button[mat-button].cancel-button:hover {
+    background-color: #d32f2f;
+}

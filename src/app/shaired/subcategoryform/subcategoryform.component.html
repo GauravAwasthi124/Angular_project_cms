@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Add Sub Category</h2>
+<form [formGroup]="subcategoryform" (ngSubmit)="submit()">
+    <mat-dialog-content class="mat-typography">
+        <mat-form-field class="form-field">
+            <mat-label>Status of Category</mat-label>
+            <mat-select formControlName="category_id">
+                <mat-option *ngFor="let category of category" [value]="category.category_id">
+                    {{ category.category_name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Enter the Sub Category</mat-label>
+            <input matInput formControlName="sub_category_name" />
+        </mat-form-field>
+        <br>
+        <mat-form-field class="form-field">
+            <mat-label>Status of Category</mat-label>
+            <mat-select formControlName="status">
+                <mat-option value="1">Active</mat-option>
+                <mat-option value="0">Not Active</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close class="cancel-button">
+            <mat-icon>clear</mat-icon>
+            Cancel
+        </button>
+        <button mat-button type="submit" [mat-dialog-close]="true" cdkFocusInitial>
+            <mat-icon>save</mat-icon>
+            Submit
+        </button>
+    </mat-dialog-actions>
+</form>

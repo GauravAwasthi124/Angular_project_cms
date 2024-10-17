@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { SidebarService } from '../service/sidebar/sidebar.service';
-import { LoginService } from '../service/login/login.service';
 import { NavigationEnd, Router } from '@angular/router';
 
 
