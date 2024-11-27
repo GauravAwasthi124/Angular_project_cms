@@ -15,7 +15,6 @@ import { LoginService } from 'src/app/service/login/login.service';
 })
 
 
-
 export class LoginComponent implements OnInit {
 
   form!: FormGroup;

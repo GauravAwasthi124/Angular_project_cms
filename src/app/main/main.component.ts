@@ -14,9 +14,7 @@ export class MainComponent {
   token = localStorage.getItem('token');
   isLoginPage = true;
 
-  constructor(private sidebarService: SidebarService,private router: Router) {
-     
-  }
+  constructor(private sidebarService: SidebarService,private router: Router) {}
   ngOnInit() {
     if (!this.token) {
       this.router.navigateByUrl('login');

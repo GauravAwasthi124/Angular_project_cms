@@ -4,11 +4,12 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CategoryService } from 'src/app/service/category/category.service';
 import { LoginService } from 'src/app/service/login/login.service';
 
+
 @Component({
   selector: 'app-categoryform',
   templateUrl: './categoryform.component.html',
   styleUrls: ['./categoryform.component.css']
-})
+})  
 export class CategoryformComponent implements OnInit {
   profiledata!: any;
   categoryform!: FormGroup;
@@ -26,7 +27,7 @@ export class CategoryformComponent implements OnInit {
       status: ['0',[Validators.required]]
     });
   }
-
+  
   ngOnInit(): void {
     this.profileData();
     if (this.editData) {
@@ -42,14 +43,14 @@ export class CategoryformComponent implements OnInit {
   profileData() {
     this.data.profileUser(this.token).subscribe(res => {
       this.profiledata = res;
-      this.categoryform.get('added_by')?.setValue(this.profiledata.authData.users.name);
+      this.categoryform.get('added_by')?.setValue(this.profiledata.authData.user.name);
     });
   }
 
   submit() {
     if (this.categoryform.valid) {
       const { category_name, status } = this.categoryform.value;
-      const added_by = this.profiledata.authData.users.name; 
+      const added_by = this.profiledata.authData.user.name; 
 
       if (this.editData) {
         this.category.updateCategory(this.token, this.editData.id, category_name, added_by,status).subscribe({

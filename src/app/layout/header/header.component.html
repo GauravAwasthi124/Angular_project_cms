@@ -9,8 +9,8 @@
     <span class="example-spacer"></span>
     <button mat-button class="neumorphic-button">
         <mat-icon>account_circle</mat-icon>
-        {{userData?.authData?.users?.name | uppercase}}
+        {{userData?.authData?.user?.name | uppercase}}
     </button>
     &nbsp;&nbsp;&nbsp;&nbsp;
     <button mat-button class="neumorphic-button" (click)="logout()">LOGOUT</button>
-</mat-toolbar>
+</mat-toolbar> 

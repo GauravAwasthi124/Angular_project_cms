@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SubcategoryService {
-  ApiUrl = 'http://localhost:1111/api/sub_category';
+  ApiUrl = 'http://localhost:1111/api/sub_category/';
   constructor(private http: HttpClient) { }
   
   getSubCategory(token:any):Observable<any> {
@@ -24,7 +24,7 @@ export class SubcategoryService {
     const body = { category_id, sub_category_name, added_by, status };
     const headers = new HttpHeaders().set('Authorization', `Bearar ${token}`);
     return this.http.put<any>(`${this.ApiUrl}${id}`,body,{headers})
-  }
+  } 
 
   deleteSubCategory(token: any,id:number):Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearar ${token}`);

@@ -24,7 +24,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CategoryformComponent } from './shaired/categoryform/categoryform.component';
 import { SubcategoryformComponent } from './shaired/subcategoryform/subcategoryform.component';
 import { SubcategoryComponent } from './pages/subcategory/subcategory.component';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { ProductComponent } from './pages/product/product.component';
+import { ProductformComponent } from './shaired/productform/productform.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,9 @@ import { SubcategoryComponent } from './pages/subcategory/subcategory.component'
     DeletedialogComponent,
     CategoryformComponent,
     SubcategoryformComponent,
-    SubcategoryComponent
+    SubcategoryComponent,
+    ProductComponent,
+    ProductformComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +59,8 @@ import { SubcategoryComponent } from './pages/subcategory/subcategory.component'
     MatSelectModule,
     MatTableModule,
     MatDialogModule,
+    MatPaginatorModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,6 +5,7 @@ import { MainComponent } from './main/main.component';
 import { UserlistComponent } from './pages/users/userlist.component';
 import { CategoryComponent } from './pages/category/category.component';
 import { SubcategoryComponent } from './pages/subcategory/subcategory.component';
+import { ProductComponent } from './pages/product/product.component';
 
 const routes: Routes = [
   {
@@ -27,9 +28,14 @@ const routes: Routes = [
   {
     path: 'category',
     component:CategoryComponent
-  }, {
+  },
+  {
     path: 'subcategory',
     component:SubcategoryComponent
+  },
+  {
+    path: 'product',
+    component:ProductComponent
   }
 ];
 

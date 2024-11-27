@@ -1,5 +1,5 @@
 <h2 mat-dialog-title>Add Sub Category</h2>
-<form [formGroup]="subcategoryform" (ngSubmit)="submit()">
+<form [formGroup]="productform" (ngSubmit)="submit()">
     <mat-dialog-content class="mat-typography">
         <mat-form-field class="form-field">
             <mat-label>Status of Category</mat-label>
@@ -10,13 +10,32 @@
             </mat-select>
         </mat-form-field>
         <br>
+        <mat-form-field class="form-field">
+            <mat-label>Status of Sub Category</mat-label>
+            <mat-select formControlName="sub_category_id">
+                <mat-option *ngFor="let subcategory of subcategory" [value]="subcategory.id">
+                    {{ subcategory.sub_category_name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
         <mat-form-field>
-            <mat-label>Enter the Sub Category</mat-label>
-            <input matInput formControlName="sub_category_name" />
+            <mat-label>Enter the Product</mat-label>
+            <input matInput formControlName="product_name" />
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Description of Product</mat-label>
+            <input matInput formControlName="description" />
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Product Price</mat-label>
+            <input matInput formControlName="price" />
         </mat-form-field>
         <br>
         <mat-form-field class="form-field">
-            <mat-label>Status of Sub Category</mat-label>
+            <mat-label>Status of Product</mat-label>
             <mat-select formControlName="status">
                 <mat-option [value]="1">Active</mat-option>
                 <mat-option [value]="0">Not Active</mat-option>
@@ -24,7 +43,9 @@
         </mat-form-field>
         <br>
     </mat-dialog-content>
-
+    <mat-label>Upload Product Image</mat-label><br>
+    <input type="file" (change)="onFileSelected($event)" />
+    <br>
     <mat-dialog-actions align="end">
         <button mat-button mat-dialog-close class="cancel-button">
             <mat-icon>clear</mat-icon>

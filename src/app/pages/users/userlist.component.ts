@@ -28,7 +28,7 @@ export class UserlistComponent implements OnInit {
       email: this.email,
       userrole: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.maxLength(6)]],
-      status: ['', [Validators.required]]
+      status: ['0', [Validators.required]]
     })
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
